@@ -17,121 +17,313 @@
     <title>SkyVue Weather App</title>
   </head>
   <body>
-    <div class="container">
-      <div class="row">
-        <div class="col-2">
-          <nav class="nav flex-column">
-            <a class="nav-link" href="index.html">Home</a>
-            <a class="nav-link active" aria-current="page" href="weather.html"
-              >Weather</a
-            >
-            <a class="nav-link" href="settings.html">Settings</a>
-          </nav>
-        </div>
-        <div class="col-8">
-          <form class="d-flex" role="search">
-            <input
-              class="form-control me-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <button class="btn btn-outline-success" type="submit">
-              Search
-            </button>
-          </form>
+    <div class="container d-flex align-items-center justify-content-center">
+      <div class="weather-app-wrapper">
+        <div class="weather-app">
           <div class="row">
-            <div class="col-6">
-              <h1>Cape Town</h1>
-              <h6>Partly cloudy</h6>
-              <h1>31°C</h1>
+            <div class="col-1 first-column">
+              <div class="navigation">
+                <nav class="nav flex-column">
+                  <img
+                    src="images/umbrella.png"
+                    class="img-fluid logo"
+                    alt="umbrella"
+                  />
+                  <div class="sub-nav">
+                    <a class="nav-link" href="index.html">
+                      <img
+                        src="images/umbrella.png"
+                        class="img-fluid"
+                        alt="umbrella"
+                        width="20px"
+                      />
+                      <div>Home</div>
+                    </a>
+                    <a
+                      class="nav-link active"
+                      aria-current="page"
+                      href="weather.html"
+                    >
+                      <img
+                        src="images/umbrella.png"
+                        class="img-fluid"
+                        alt="umbrella"
+                        width="20px"
+                      />
+                      <div>Weather</div>
+                    </a>
+                    <a class="nav-link" href="settings.html">
+                      <img
+                        src="images/umbrella.png"
+                        class="img-fluid"
+                        alt="umbrella"
+                        width="20px"
+                      />
+                      <div>Settings</div>
+                    </a>
+                  </div>
+                </nav>
+              </div>
             </div>
-            <div class="col-6">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 640 512"
-                height="6em"
-              >
-                <!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-                <path
-                  d="M294.2 1.2c5.1 2.1 8.7 6.7 9.6 12.1l14.1 84.7 84.7 14.1c5.4 .9 10 4.5 12.1 9.6s1.5 10.9-1.6 15.4l-38.5 55c-2.2-.1-4.4-.2-6.7-.2c-23.3 0-45.1 6.2-64 17.1l0-1.1c0-53-43-96-96-96s-96 43-96 96s43 96 96 96c8.1 0 15.9-1 23.4-2.9c-36.6 18.1-63.3 53.1-69.8 94.9l-24.4 17c-4.5 3.2-10.3 3.8-15.4 1.6s-8.7-6.7-9.6-12.1L98.1 317.9 13.4 303.8c-5.4-.9-10-4.5-12.1-9.6s-1.5-10.9 1.6-15.4L52.5 208 2.9 137.2c-3.2-4.5-3.8-10.3-1.6-15.4s6.7-8.7 12.1-9.6L98.1 98.1l14.1-84.7c.9-5.4 4.5-10 9.6-12.1s10.9-1.5 15.4 1.6L208 52.5 278.8 2.9c4.5-3.2 10.3-3.8 15.4-1.6zM144 208a64 64 0 1 1 128 0 64 64 0 1 1 -128 0zM639.9 431.9c0 44.2-35.8 80-80 80H288c-53 0-96-43-96-96c0-47.6 34.6-87 80-94.6l0-1.3c0-53 43-96 96-96c34.9 0 65.4 18.6 82.2 46.4c13-9.1 28.8-14.4 45.8-14.4c44.2 0 80 35.8 80 80c0 5.9-.6 11.7-1.9 17.2c37.4 6.7 65.8 39.4 65.8 78.7z"
-                />
-              </svg>
-            </div>
-            <div class="row">
-              <h6>TODAY'S FORECAST</h6>
-              <div class="col-2">
-                <div>6:00AM</div>
-                20°C
-              </div>
-              <div class="col-2">
-                <div>6:00AM</div>
-                20°C
-              </div>
-              <div class="col-2">
-                <div>6:00AM</div>
-                20°C
-              </div>
-              <div class="col-2">
-                <div>6:00AM</div>
-                20°C
-              </div>
-              <div class="col-2">
-                <div>6:00AM</div>
-                20°C
-              </div>
-              <div class="col-2">
-                <div>6:00AM</div>
-                20°C
-              </div>
-            </div>
-            <div class="row">
-              <h6>AIR CONDITIONS</h6>
+            <div class="col-8 second-column">
               <div class="row">
-                <div class="col-6">Real Feel</div>
-                <div class="col-6">Wind</div>
+                <div class="col-10 px-1">
+                  <form class="d-flex" role="search">
+                    <input
+                      class="form-control me-1"
+                      type="search"
+                      placeholder="Search"
+                      aria-label="Search"
+                    />
+                    <button class="btn btn-outline-info search-button" type="submit">
+                      Search
+                    </button>
+                  </form>
+                </div>
+                <div class="col-2 px-0">
+                  <button class="btn btn-info current-button" type="submit">
+                    Current
+                  </button>
+                </div>
               </div>
               <div class="row">
-                <div class="col-6">Chances of rain</div>
-                <div class="col-6">UV Index</div>
+                <div class="col-6">
+                  <div class="main-weather-info">
+                    <h1 class="city">Cape Town</h1>
+                    <h6 class="country">South Africa</h6>
+                    <h6 class="weather-condition">Partly cloudy</h6>
+                    <h1 class="temperature">31°C</h1>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 640 512"
+                    height="6em"
+                  >
+                    <!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                    <path
+                      d="M294.2 1.2c5.1 2.1 8.7 6.7 9.6 12.1l14.1 84.7 84.7 14.1c5.4 .9 10 4.5 12.1 9.6s1.5 10.9-1.6 15.4l-38.5 55c-2.2-.1-4.4-.2-6.7-.2c-23.3 0-45.1 6.2-64 17.1l0-1.1c0-53-43-96-96-96s-96 43-96 96s43 96 96 96c8.1 0 15.9-1 23.4-2.9c-36.6 18.1-63.3 53.1-69.8 94.9l-24.4 17c-4.5 3.2-10.3 3.8-15.4 1.6s-8.7-6.7-9.6-12.1L98.1 317.9 13.4 303.8c-5.4-.9-10-4.5-12.1-9.6s-1.5-10.9 1.6-15.4L52.5 208 2.9 137.2c-3.2-4.5-3.8-10.3-1.6-15.4s6.7-8.7 12.1-9.6L98.1 98.1l14.1-84.7c.9-5.4 4.5-10 9.6-12.1s10.9-1.5 15.4 1.6L208 52.5 278.8 2.9c4.5-3.2 10.3-3.8 15.4-1.6zM144 208a64 64 0 1 1 128 0 64 64 0 1 1 -128 0zM639.9 431.9c0 44.2-35.8 80-80 80H288c-53 0-96-43-96-96c0-47.6 34.6-87 80-94.6l0-1.3c0-53 43-96 96-96c34.9 0 65.4 18.6 82.2 46.4c13-9.1 28.8-14.4 45.8-14.4c44.2 0 80 35.8 80 80c0 5.9-.6 11.7-1.9 17.2c37.4 6.7 65.8 39.4 65.8 78.7z"
+                    />
+                  </svg>
+                </div>
+                <div class="todays-forecast">
+                  <div class="row">
+                    <h6 class="grey-text">TODAY'S FORECAST</h6>
+                    <div class="col-2">
+                      <span>6:00AM</span>
+                      <img
+                        src="images/umbrella.png"
+                        class="img-fluid"
+                        alt="umbrella"
+                        width="30px"
+                      />
+                      <div class="hourly-temp">20°C</div>
+                    </div>
+                    <div class="col-2">
+                      <span>6:00AM</span>
+                      <img
+                        src="images/umbrella.png"
+                        class="img-fluid"
+                        alt="umbrella"
+                        width="30px"
+                      />
+                      <div class="hourly-temp">20°C</div>
+                    </div>
+                    <div class="col-2">
+                      <span>6:00AM</span>
+                      <img
+                        src="images/umbrella.png"
+                        class="img-fluid"
+                        alt="umbrella"
+                        width="30px"
+                      />
+                      <div class="hourly-temp">20°C</div>
+                    </div>
+                    <div class="col-2">
+                      <span>6:00AM</span>
+                      <img
+                        src="images/umbrella.png"
+                        class="img-fluid"
+                        alt="umbrella"
+                        width="30px"
+                      />
+                      <div class="hourly-temp">20°C</div>
+                    </div>
+                    <div class="col-2">
+                      <span>6:00AM</span>
+                      <img
+                        src="images/umbrella.png"
+                        class="img-fluid"
+                        alt="umbrella"
+                        width="30px"
+                      />
+                      <div class="hourly-temp">20°C</div>
+                    </div>
+                    <div class="col-2">
+                      <span>6:00AM</span>
+                      <img
+                        src="images/umbrella.png"
+                        class="img-fluid"
+                        alt="umbrella"
+                        width="30px"
+                      />
+                      <div class="hourly-temp">20°C</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="air-conditions">
+                  <div class="row">
+                    <h6 class="grey-text">AIR CONDITIONS</h6>
+                    <div class="row">
+                      <div class="col-6">
+                        <span>
+                          <img
+                            src="images/umbrella.png"
+                            class="img-fluid"
+                            alt="umbrella"
+                            width="15px"
+                          />
+                          Real Feel</span
+                        >
+                        <div class="condition-strength">20</div>
+                      </div>
+
+                      <div class="col-6">
+                        <span
+                          ><img
+                            src="images/umbrella.png"
+                            class="img-fluid"
+                            alt="umbrella"
+                            width="15px"
+                          />Wind</span
+                        >
+                        <div class="condition-strength">20</div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-6">
+                        <span
+                          ><img
+                            src="images/umbrella.png"
+                            class="img-fluid"
+                            alt="umbrella"
+                            width="15px"
+                          />Chances of rain</span
+                        >
+                        <div class="condition-strength">20</div>
+                      </div>
+                      <div class="col-6">
+                        <span
+                          ><img
+                            src="images/umbrella.png"
+                            class="img-fluid"
+                            alt="umbrella"
+                            width="15px"
+                          />UV Index</span
+                        >
+                        <div class="condition-strength">20</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-3">
+              <div class="daily-forecast">
+                <nav class="nav flex-column">
+                  <h6 class="daily-forecast-heading">7-DAY FORECAST</h6>
+                  <div class="row daily-forecast-container">
+                    <div class="col-4 days">
+                      <li class="nav-item">Today</li>
+                      <li class="nav-item">Tue</li>
+                      <li class="nav-item">Wed</li>
+                      <li class="nav-item">Thur</li>
+                      <li class="nav-item">Fri</li>
+                      <li class="nav-item">Sat</li>
+                      <li class="nav-item">Sun</li>
+                    </div>
+                    <div class="col-4 feel">
+                      <li class="nav-item d-flex">
+                        <img
+                          src="images/umbrella.png"
+                          class="img-fluid"
+                          alt="umbrella"
+                          width="15px"
+                        />Sunny
+                      </li>
+                      <li class="nav-item d-flex">
+                        <img
+                          src="images/umbrella.png"
+                          class="img-fluid"
+                          alt="umbrella"
+                          width="15px"
+                        />Sunny
+                      </li>
+                      <li class="nav-item d-flex">
+                        <img
+                          src="images/umbrella.png"
+                          class="img-fluid"
+                          alt="umbrella"
+                          width="15px"
+                        />Sunny
+                      </li>
+                      <li class="nav-item d-flex">
+                        <img
+                          src="images/umbrella.png"
+                          class="img-fluid"
+                          alt="umbrella"
+                          width="15px"
+                        />Sunny
+                      </li>
+                      <li class="nav-item d-flex">
+                        <img
+                          src="images/umbrella.png"
+                          class="img-fluid"
+                          alt="umbrella"
+                          width="15px"
+                        />Sunny
+                      </li>
+                      <li class="nav-item d-flex">
+                        <img
+                          src="images/umbrella.png"
+                          class="img-fluid"
+                          alt="umbrella"
+                          width="15px"
+                        />Sunny
+                      </li>
+                      <li class="nav-item d-flex">
+                        <img
+                          src="images/umbrella.png"
+                          class="img-fluid"
+                          alt="umbrella"
+                          width="15px"
+                        />Sunny
+                      </li>
+                    </div>
+                    <div class="col-4 daily-temp">
+                      <li class="nav-item">36<span>/21</span></li>
+                      <li class="nav-item">36<span>/21</span></li>
+                      <li class="nav-item">36<span>/21</span></li>
+                      <li class="nav-item">36<span>/21</span></li>
+                      <li class="nav-item">36<span>/21</span></li>
+                      <li class="nav-item">36<span>/21</span></li>
+                      <li class="nav-item">36<span>/21</span></li>
+                    </div>
+                  </div>
+                </nav>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-2">
-          <h6>7-DAY FORECAST</h6>
-          <nav class="nav flex-column">
-            <div class="row">
-              <div class="col-4">
-                <li class="nav-item">Today</li>
-                <li class="nav-item">Tue</li>
-                <li class="nav-item">Wed</li>
-                <li class="nav-item">Thur</li>
-                <li class="nav-item">Fri</li>
-                <li class="nav-item">Sat</li>
-                <li class="nav-item">Sun</li>
-              </div>
-              <div class="col-4">
-                <li class="nav-item">Sunny</li>
-                <li class="nav-item">Sunny</li>
-                <li class="nav-item">Sunny</li>
-                <li class="nav-item">Sunny</li>
-                <li class="nav-item">Sunny</li>
-                <li class="nav-item">Sunny</li>
-                <li class="nav-item">Sunny</li>
-              </div>
-              <div class="col-4">
-                <li class="nav-item">36°C</li>
-                <li class="nav-item">36°C</li>
-                <li class="nav-item">36°C</li>
-                <li class="nav-item">36°C</li>
-                <li class="nav-item">36°C</li>
-                <li class="nav-item">36°C</li>
-                <li class="nav-item">36°C</li>
-              </div>
-            </div>
-          </nav>
-        </div>
+        <small>
+          <a
+            href="https://github.com/NonzwakaziMgxaji/skyvue-weather-app"
+            target="_blank"
+            >Open-source code</a
+          >
+          by Nonzwakazi Mgxaji
+        </small>
       </div>
     </div>
     <script src="src/app.js"></script>

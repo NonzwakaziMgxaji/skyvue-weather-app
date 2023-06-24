@@ -17,48 +17,190 @@
     <title>SkyVue Weather App</title>
   </head>
   <body>
-    <div class="container">
-      <div class="row">
-        <div class="col-2">
-          <nav class="nav flex-column">
-            <a class="nav-link" href="index.html">Home</a>
-            <a class="nav-link active" aria-current="page" href="weather.html"
-              >Weather</a
-            >
-            <a class="nav-link" href="settings.html">Settings</a>
-          </nav>
-        </div>
-        <div class="col-10">
-          <form class="d-flex" role="search">
-            <input
-              class="form-control me-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <button class="btn btn-outline-success" type="submit">
-              Search
-            </button>
-          </form>
-          <div>
-            <h5>Units</h5>
-            <div>
-              <h6>TEMPERATURE</h6>
+    <div class="container d-flex align-items-center justify-content-center">
+      <div class="weather-app-wrapper">
+        <div class="weather-app">
+          <div class="row">
+            <div class="col-1 first-column">
+              <div class="navigation">
+                <nav class="nav flex-column">
+                  <img
+                    src="images/umbrella.png"
+                    class="img-fluid logo"
+                    alt="umbrella"
+                  />
+                  <div class="sub-nav">
+                    <a class="nav-link" href="index.html">
+                      <img
+                        src="images/umbrella.png"
+                        class="img-fluid"
+                        alt="umbrella"
+                        width="20px"
+                      />
+                      <div>Home</div>
+                    </a>
+                    <a class="nav-link" aria-current="page" href="weather.html">
+                      <img
+                        src="images/umbrella.png"
+                        class="img-fluid"
+                        alt="umbrella"
+                        width="20px"
+                      />
+                      <div>Weather</div>
+                    </a>
+                    <a class="nav-link active" href="settings.html">
+                      <img
+                        src="images/umbrella.png"
+                        class="img-fluid"
+                        alt="umbrella"
+                        width="20px"
+                      />
+                      <div>Settings</div>
+                    </a>
+                  </div>
+                </nav>
+              </div>
             </div>
-            <div>
-              <h6>WIND SPEED</h6>
-            </div>
-            <div>
-              <h6>PRESSURE</h6>
-            </div>
-            <div>
-              <h6>PRECIPITATION</h6>
-            </div>
-            <div>
-              <h6>DISTANCE</h6>
+
+            <div class="col-10 second-column">
+              <!-- <form class="d-flex" role="search">
+                <input
+                  class="form-control me-2"
+                  type="search"
+                  placeholder="Search"
+                  aria-label="Search"
+                />
+                <button class="btn btn-outline-success" type="submit">
+                  Search
+                </button>
+              </form> -->
+
+              <div>
+                <h5 class="units-heading">Units</h5>
+                <div class="settings">
+                  <div class="individual-setting">
+                    <h6 class="settings-heading">TEMPERATURE</h6>
+                    <div class="form-box">
+                      <div class="button-box">
+                        <div id="btn"></div>
+                        <button
+                          type="button"
+                          class="toggle-btn"
+                          onclick="leftClick()"
+                        >
+                          Celc
+                        </button>
+                        <button
+                          type="button"
+                          class="toggle-btn"
+                          onclick="rightClick()"
+                        >
+                          Fahr
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="individual-setting">
+                    <h6 class="settings-heading">WIND SPEED</h6>
+                    <div class="form-box">
+                      <div class="button-box">
+                        <div id="btn"></div>
+                        <button
+                          type="button"
+                          class="toggle-btn"
+                          onclick="leftClick()"
+                        >
+                          Celc
+                        </button>
+                        <button
+                          type="button"
+                          class="toggle-btn"
+                          onclick="rightClick()"
+                        >
+                          Fahr
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="individual-setting">
+                    <h6 class="settings-heading">PRESSURE</h6>
+                    <div class="form-box">
+                      <div class="button-box">
+                        <div id="btn"></div>
+                        <button
+                          type="button"
+                          class="toggle-btn"
+                          onclick="leftClick()"
+                        >
+                          Celc
+                        </button>
+                        <button
+                          type="button"
+                          class="toggle-btn"
+                          onclick="rightClick()"
+                        >
+                          Fahr
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="individual-setting">
+                    <h6 class="settings-heading">PRECIPITATION</h6>
+                    <div class="form-box">
+                      <div class="button-box">
+                        <div id="btn"></div>
+                        <button
+                          type="button"
+                          class="toggle-btn"
+                          onclick="leftClick()"
+                        >
+                          Celc
+                        </button>
+                        <button
+                          type="button"
+                          class="toggle-btn"
+                          onclick="rightClick()"
+                        >
+                          Fahr
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="individual-setting">
+                    <h6 class="settings-heading">DISTANCE</h6>
+                    <div class="form-box">
+                      <div class="button-box">
+                        <div id="btn"></div>
+                        <button
+                          type="button"
+                          class="toggle-btn"
+                          onclick="leftClick()"
+                        >
+                          Celc
+                        </button>
+                        <button
+                          type="button"
+                          class="toggle-btn"
+                          onclick="rightClick()"
+                        >
+                          Fahr
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
+        <small>
+          <a
+            href="https://github.com/NonzwakaziMgxaji/skyvue-weather-app"
+            target="_blank"
+            >Open-source code</a
+          >
+          by Nonzwakazi Mgxaji
+        </small>
       </div>
     </div>
     <script src="src/app.js"></script>
