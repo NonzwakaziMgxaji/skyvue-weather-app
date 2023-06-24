@@ -1,5 +1,31 @@
+function formatDate(timestamp) {
+  let now = new Date(timestamp);
+  let daysOfWeek = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let day = daysOfWeek[now.getDay()];
+  let hours = now.getHours();
+  let minutes = now.getMinutes();
+
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+  return `Last updated: ${day} ${hours}:${minutes}`;
+}
+
 function getCurrentLocation() {
   function getCurrentTemperature(response) {
+    let currentDateAndTime = document.querySelector("#current-date-time");
+    currentDateAndTime.innerHTML = formatDate(response.data.dt * 1000);
     let currentTemperature = document.querySelector("#temperature");
     let roundedTemp = Math.round(response.data.main.temp);
     currentTemperature.innerHTML = `${roundedTemp}`;
