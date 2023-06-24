@@ -25,28 +25,25 @@ function formatDate(timestamp) {
 function getCurrentLocation() {
   function getCurrentTemperature(response) {
     let currentDateAndTime = document.querySelector("#current-date-time");
-    currentDateAndTime.innerHTML = formatDate(response.data.dt * 1000);
+    currentDateAndTime.innerHTML = formatDate(response.data.time * 1000);
     let currentTemperature = document.querySelector("#temperature");
-    let roundedTemp = Math.round(response.data.main.temp);
+    let roundedTemp = Math.round(response.data.temperature.current);
     currentTemperature.innerHTML = `${roundedTemp}`;
 
     let currentLocation = document.querySelector("#city-name");
-    let locationName = response.data.name;
+    let locationName = response.data.city;
     currentLocation.innerHTML = locationName;
 
-    const regionNames = new Intl.DisplayNames(["en"], { type: "region" });
-    document.querySelector("#country").innerHTML = regionNames.of(
-      response.data.sys.country
-    );
+    document.querySelector("#country").innerHTML = response.data.country;
     document.querySelector("#description").innerHTML =
-      response.data.weather[0].description;
+      response.data.condition.description;
 
     let humidity = document.querySelector("#humidity");
     let wind = document.querySelector("#wind");
     let feel = document.querySelector("#feels-like");
-    let humidityValue = response.data.main.humidity;
+    let humidityValue = response.data.temperature.humidity;
     let windValue = Math.round(response.data.wind.speed);
-    let realFeel = Math.round(response.data.main.feels_like);
+    let realFeel = Math.round(response.data.temperature.feels_like);
     humidity.innerHTML = `${humidityValue}%`;
     wind.innerHTML = `${windValue}km/h`;
     feel.innerHTML = `${realFeel}°C`;
@@ -56,9 +53,8 @@ function getCurrentLocation() {
     let latitude = position.coords.latitude.toFixed(2);
     let longitude = position.coords.longitude.toFixed(2);
     let unit = "metric";
-    let apiKey = "082d3d02ffdb12f2fd9b259e2ced1d0d";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=${unit}&appid=${apiKey}`;
-
+    let apiKey = "obd7f8ea0640624396b700c2ade6450t";
+    let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${longitude}&lat=${latitude}&units=${unit}&key=${apiKey}`;
     axios.get(`${apiUrl}`).then(getCurrentTemperature);
   }
   navigator.geolocation.getCurrentPosition(getCurrentCoordinates);
