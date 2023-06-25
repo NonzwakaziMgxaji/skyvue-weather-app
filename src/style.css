@@ -96,7 +96,8 @@ button:hover {
 }
 
 .nav-link:hover {
-  color: #1088a0;
+  background-color: #ffffff;
+  border-radius: 10px;
 }
 
 .active {
