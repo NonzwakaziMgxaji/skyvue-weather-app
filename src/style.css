@@ -156,7 +156,7 @@ span {
 .daily-temp {
   color: #202b3b;
   padding-right: 0;
-  padding-left: 8px;
+  padding-left: 20px;
 }
 
 .days {
@@ -191,7 +191,6 @@ p {
   color: #74777b;
   font-size: small;
   text-align: center;
-  line-height: 1px;
 }
 
 .temperature {
@@ -207,7 +206,7 @@ p {
 }
 
 .main-weather-info {
-  padding-left: 30px;
+  padding-left: 15px;
   margin-top: 5px;
 }
 
@@ -287,5 +286,11 @@ p {
 }
 
 .distance {
+  margin-bottom: 0;
+}
+
+.nav-list {
+  list-style: none;
+  padding-left: 0;
   margin-bottom: 0;
 }

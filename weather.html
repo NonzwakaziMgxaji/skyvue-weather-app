@@ -32,12 +32,7 @@
                   />
                   <div class="sub-nav">
                     <a class="nav-link" href="index.html">
-                      <img
-                        src="images/umbrella.png"
-                        class="img-fluid"
-                        alt="umbrella"
-                        width="20px"
-                      />
+                      <img src="images/home.png" alt="home" width="30px">
                       <div>Home</div>
                     </a>
                     <a
@@ -46,20 +41,15 @@
                       href="weather.html"
                     >
                       <img
-                        src="images/umbrella.png"
+                        src="https://shecodes-assets.s3.amazonaws.com/api/weather/icons/thunderstorm-night.png"
                         class="img-fluid"
-                        alt="umbrella"
-                        width="20px"
+                        alt="weather icon"
+                        width="40px"
                       />
                       <div>Weather</div>
                     </a>
                     <a class="nav-link" href="settings.html">
-                      <img
-                        src="images/umbrella.png"
-                        class="img-fluid"
-                        alt="umbrella"
-                        width="20px"
-                      />
+                      <img src="images/settings.png" alt="settings" width="20px">
                       <div>Settings</div>
                     </a>
                   </div>
@@ -108,10 +98,10 @@
                 <div class="col-6">
                   <div class="main-weather-temp">
                     <img
-                      src="images/umbrella.png"
+                      src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/rain-day.png"
                       class="img-fluid mx-4"
-                      alt="umbrella"
-                      width="50px"
+                      id="main-weather-icon"
+                      alt="weather icon"
                     />
                     <div>
                       <div>
@@ -252,80 +242,86 @@
                   <h6 class="daily-forecast-heading">7-DAY FORECAST</h6>
                   <div class="row daily-forecast-container">
                     <div class="col-4 days">
-                      <li class="nav-item">Today</li>
-                      <li class="nav-item">Tue</li>
-                      <li class="nav-item">Wed</li>
-                      <li class="nav-item">Thur</li>
-                      <li class="nav-item">Fri</li>
-                      <li class="nav-item">Sat</li>
-                      <li class="nav-item">Sun</li>
+                      <ul class="nav-list" id="nav-list-one">
+                        <li class="nav-item" id="day">Sun</li>
+                        <li class="nav-item">Mon</li>
+                        <li class="nav-item">Tue</li>
+                        <li class="nav-item">Wed</li>
+                        <li class="nav-item">Thur</li>
+                        <li class="nav-item">Fri</li>
+                        <li class="nav-item">Sat</li>
+                      </ul>
                     </div>
                     <div class="col-4 feel">
-                      <li class="nav-item d-flex">
-                        <img
-                          src="images/umbrella.png"
-                          class="img-fluid"
-                          alt="umbrella"
-                          width="15px"
-                        />Sunny
-                      </li>
-                      <li class="nav-item d-flex">
-                        <img
-                          src="images/umbrella.png"
-                          class="img-fluid"
-                          alt="umbrella"
-                          width="15px"
-                        />Sunny
-                      </li>
-                      <li class="nav-item d-flex">
-                        <img
-                          src="images/umbrella.png"
-                          class="img-fluid"
-                          alt="umbrella"
-                          width="15px"
-                        />Sunny
-                      </li>
-                      <li class="nav-item d-flex">
-                        <img
-                          src="images/umbrella.png"
-                          class="img-fluid"
-                          alt="umbrella"
-                          width="15px"
-                        />Sunny
-                      </li>
-                      <li class="nav-item d-flex">
-                        <img
-                          src="images/umbrella.png"
-                          class="img-fluid"
-                          alt="umbrella"
-                          width="15px"
-                        />Sunny
-                      </li>
-                      <li class="nav-item d-flex">
-                        <img
-                          src="images/umbrella.png"
-                          class="img-fluid"
-                          alt="umbrella"
-                          width="15px"
-                        />Sunny
-                      </li>
-                      <li class="nav-item d-flex">
-                        <img
-                          src="images/umbrella.png"
-                          class="img-fluid"
-                          alt="umbrella"
-                          width="15px"
-                        />Sunny
-                      </li>
+                      <ul class="nav-list" id="nav-list-two">
+                        <li class="nav-item d-flex">
+                          <img
+                            src="images/umbrella.png"
+                            class="img-fluid icon"
+                            alt="umbrella"
+                            width="15px"
+                          />Sunny
+                        </li>
+                        <li class="nav-item d-flex">
+                          <img
+                            src="images/umbrella.png"
+                            class="img-fluid icon"
+                            alt="umbrella"
+                            width="15px"
+                          />Sunny
+                        </li>
+                        <li class="nav-item d-flex">
+                          <img
+                            src="images/umbrella.png"
+                            class="img-fluid icon"
+                            alt="umbrella"
+                            width="15px"
+                          />Sunny
+                        </li>
+                        <li class="nav-item d-flex">
+                          <img
+                            src="images/umbrella.png"
+                            class="img-fluid icon"
+                            alt="umbrella"
+                            width="15px"
+                          />Sunny
+                        </li>
+                        <li class="nav-item d-flex">
+                          <img
+                            src="images/umbrella.png"
+                            class="img-fluid icon"
+                            alt="umbrella"
+                            width="15px"
+                          />Sunny
+                        </li>
+                        <li class="nav-item d-flex">
+                          <img
+                            src="images/umbrella.png"
+                            class="img-fluid icon"
+                            alt="umbrella"
+                            width="15px"
+                          />Sunny
+                        </li>
+                        <li class="nav-item d-flex">
+                          <img
+                            src="images/umbrella.png"
+                            class="img-fluid icon"
+                            alt="umbrella"
+                            width="15px"
+                          />Sunny
+                        </li>
+                      </ul>
                     </div>
                     <div class="col-4 daily-temp">
-                      <li class="nav-item">36<span>/21</span></li>
-                      <li class="nav-item">36<span>/21</span></li>
-                      <li class="nav-item">36<span>/21</span></li>
-                      <li class="nav-item">36<span>/21</span></li>
-                      <li class="nav-item">36<span>/21</span></li>
-                      <li class="nav-item">36<span>/21</span></li>
-                      <li class="nav-item">36<span>/21</span></li>
+                      <ul class="nav-list" id="nav-list-three">
+                        <li class="nav-item">36<span>/21</span></li>
+                        <li class="nav-item">36<span>/21</span></li>
+                        <li class="nav-item">36<span>/21</span></li>
+                        <li class="nav-item">36<span>/21</span></li>
+                        <li class="nav-item">36<span>/21</span></li>
+                        <li class="nav-item">36<span>/21</span></li>
+                        <li class="nav-item">36<span>/21</span></li>
+                      </ul>
                     </div>
                   </div>
                 </nav>

@@ -1,3 +1,14 @@
+let apiKey = "obd7f8ea0640624396b700c2ade6450t";
+let unit = "metric";
+let currentTemperature = document.querySelector("#temperature");
+let currentLocation = document.querySelector("#city-name");
+let mainWeatherIcon = document.querySelector("#main-weather-icon");
+let humidity = document.querySelector("#humidity");
+let wind = document.querySelector("#wind");
+let feel = document.querySelector("#feels-like");
+let currentDateAndTime = document.querySelector("#current-date-time");
+let thisDay = document.querySelector("#today");
+
 function formatDate(timestamp) {
   let now = new Date(timestamp);
   let daysOfWeek = [
@@ -22,41 +33,39 @@ function formatDate(timestamp) {
   return `Last updated: ${day} ${hours}:${minutes}`;
 }
 
-function getCurrentLocation() {
-  function getCurrentTemperature(response) {
-    let currentDateAndTime = document.querySelector("#current-date-time");
-    currentDateAndTime.innerHTML = formatDate(response.data.time * 1000);
-    let currentTemperature = document.querySelector("#temperature");
-    let roundedTemp = Math.round(response.data.temperature.current);
-    currentTemperature.innerHTML = `${roundedTemp}`;
+function getCurrentTemperature(response) {
+  currentDateAndTime.innerHTML = formatDate(response.data.time * 1000);
 
-    let currentLocation = document.querySelector("#city-name");
-    let locationName = response.data.city;
-    currentLocation.innerHTML = locationName;
+  let roundedTemp = Math.round(response.data.temperature.current);
+  currentTemperature.innerHTML = `${roundedTemp}`;
 
-    document.querySelector("#country").innerHTML = response.data.country;
-    document.querySelector("#description").innerHTML =
-      response.data.condition.description;
+  let locationName = response.data.city;
+  currentLocation.innerHTML = locationName;
+  document.querySelector("#country").innerHTML = response.data.country;
 
-    let humidity = document.querySelector("#humidity");
-    let wind = document.querySelector("#wind");
-    let feel = document.querySelector("#feels-like");
-    let humidityValue = response.data.temperature.humidity;
-    let windValue = Math.round(response.data.wind.speed);
-    let realFeel = Math.round(response.data.temperature.feels_like);
-    humidity.innerHTML = `${humidityValue}%`;
-    wind.innerHTML = `${windValue}km/h`;
-    feel.innerHTML = `${realFeel}°C`;
-  }
+  document.querySelector("#description").innerHTML =
+    response.data.condition.description;
 
-  function getCurrentCoordinates(position) {
-    let latitude = position.coords.latitude.toFixed(2);
-    let longitude = position.coords.longitude.toFixed(2);
-    let unit = "metric";
-    let apiKey = "obd7f8ea0640624396b700c2ade6450t";
-    let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${longitude}&lat=${latitude}&units=${unit}&key=${apiKey}`;
-    axios.get(`${apiUrl}`).then(getCurrentTemperature);
-  }
+  mainWeatherIcon.setAttribute("src", response.data.condition.icon_url);
+
+  let humidityValue = response.data.temperature.humidity;
+  let windValue = Math.round(response.data.wind.speed);
+  let realFeel = Math.round(response.data.temperature.feels_like);
+  humidity.innerHTML = `${humidityValue}%`;
+  wind.innerHTML = `${windValue}km/h`;
+  feel.innerHTML = `${realFeel}°C`;
+}
+
+function getCurrentCoordinates(position) {
+  let latitude = position.coords.latitude.toFixed(2);
+  let longitude = position.coords.longitude.toFixed(2);
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${longitude}&lat=${latitude}&units=${unit}&key=${apiKey}`;
+
+  axios.get(`${apiUrl}`).then(getCurrentTemperature);
+}
+
+function getCurrentLocation(event) {
+  event.preventDefault();
   navigator.geolocation.getCurrentPosition(getCurrentCoordinates);
 }
 let currentLocationTemperature = document.querySelector("#current-weather");
