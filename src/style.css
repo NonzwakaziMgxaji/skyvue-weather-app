@@ -249,6 +249,7 @@ p {
 
 .current-button {
   color: #ffffff;
+  width: 75px;
 }
 
 .current-button:hover {
@@ -290,10 +291,6 @@ p {
   transition: 0.5s;
 }
 
-.distance {
-  margin-bottom: 0;
-}
-
 .nav-list {
   list-style: none;
   padding-left: 0;
@@ -317,4 +314,8 @@ p {
 .temp-unit .active {
   color: #202b3b;
   cursor: default;
+}
+
+.fa-solid {
+  padding-right: 5px;
 }

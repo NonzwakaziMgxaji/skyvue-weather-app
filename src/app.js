@@ -6,6 +6,7 @@ let mainWeatherIcon = document.querySelector("#main-weather-icon");
 let humidity = document.querySelector("#humidity");
 let wind = document.querySelector("#wind");
 let feel = document.querySelector("#feels-like");
+let pressure = document.querySelector("#pressure");
 let currentDateAndTime = document.querySelector("#current-date-time");
 let thisDay = document.querySelector("#today");
 let celciusTemp = null;
@@ -51,9 +52,11 @@ function getCurrentTemperature(response) {
   let humidityValue = response.data.temperature.humidity;
   let windValue = Math.round(response.data.wind.speed);
   let realFeel = Math.round(response.data.temperature.feels_like);
+  let pressureValue = response.data.temperature.pressure;
   humidity.innerHTML = `${humidityValue}%`;
   wind.innerHTML = `${windValue}km/h`;
   feel.innerHTML = `${realFeel}°C`;
+  pressure.innerHTML = `${pressureValue}hPa`;
 }
 
 function getCurrentCoordinates(position) {
@@ -72,9 +75,11 @@ function displayTemp(response) {
   let realFeel = Math.round(response.data.temperature.feels_like);
   let humidityValue = response.data.temperature.humidity;
   let windValue = Math.round(response.data.wind.speed);
+  let pressureValue = response.data.temperature.pressure;
   feel.innerHTML = `${realFeel}°C`;
   humidity.innerHTML = `${humidityValue}%`;
   wind.innerHTML = `${windValue}km/h`;
+  pressure.innerHTML = `${pressureValue}hPa`;
   document.querySelector("#description").innerHTML =
     response.data.condition.description;
   mainWeatherIcon.setAttribute("src", response.data.condition.icon_url);
