@@ -198,7 +198,7 @@ p {
   font-size: 60px;
 }
 
-.celcius-unit {
+.temp-unit {
   position: relative;
   font-size: 16px;
   top: -32px;
@@ -297,4 +297,23 @@ p {
   list-style: none;
   padding-left: 0;
   margin-bottom: 0;
+}
+
+.fahrenheit-link,
+.celcius-link {
+  text-decoration: none;
+  color: #67d6ed;
+}
+
+.sec-one {
+  padding-right: 0;
+}
+
+.sec-two {
+  padding-left: 0;
+}
+
+.temp-unit .active {
+  color: #202b3b;
+  cursor: default;
 }

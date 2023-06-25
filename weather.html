@@ -91,7 +91,7 @@
                 </div>
               </div>
               <div class="row">
-                <div class="col-6">
+                <div class="col-6 sec-one">
                   <div class="main-weather-info">
                     <h1 class="city" id="city-name">Cape Town</h1>
                     <h6 class="country" id="country">South Africa</h6>
@@ -100,18 +100,32 @@
                     </p>
                   </div>
                 </div>
-                <div class="col-6">
+                <div class="col-6 sec-two">
                   <div class="main-weather-temp">
                     <img
                       src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/rain-day.png"
-                      class="img-fluid mx-2"
+                      class="img-fluid ms-2"
                       id="main-weather-icon"
                       alt="weather icon"
                     />
                     <div>
                       <div>
                         <strong class="temperature" id="temperature">31</strong>
-                        <span class="celcius-unit">°C</span>
+                        <span class="temp-unit"
+                          ><a
+                            href=""
+                            class="celcius-link active"
+                            id="celcius-link"
+                            >°C</a
+                          >
+                          |
+                          <a
+                            href="#"
+                            class="fahrenheit-link"
+                            id="fahrenheit-link"
+                            >°F</a
+                          ></span
+                        >
                       </div>
                       <h6 class="weather-condition" id="description">
                         Partly cloudy

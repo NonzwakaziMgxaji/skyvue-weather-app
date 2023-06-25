@@ -8,6 +8,7 @@ let wind = document.querySelector("#wind");
 let feel = document.querySelector("#feels-like");
 let currentDateAndTime = document.querySelector("#current-date-time");
 let thisDay = document.querySelector("#today");
+let celciusTemp = null;
 
 function formatDate(timestamp) {
   let now = new Date(timestamp);
@@ -35,9 +36,8 @@ function formatDate(timestamp) {
 
 function getCurrentTemperature(response) {
   currentDateAndTime.innerHTML = formatDate(response.data.time * 1000);
-
-  let roundedTemp = Math.round(response.data.temperature.current);
-  temperature.innerHTML = `${roundedTemp}`;
+  celciusTemp = Math.round(response.data.temperature.current);
+  temperature.innerHTML = `${celciusTemp}`;
 
   let locationName = response.data.city;
   city.innerHTML = locationName;
@@ -67,7 +67,8 @@ function getCurrentCoordinates(position) {
 function displayTemp(response) {
   city.innerHTML = response.data.city;
   document.querySelector("#country").innerHTML = response.data.country;
-  temperature.innerHTML = Math.round(response.data.temperature.current);
+  celciusTemp = Math.round(response.data.temperature.current);
+  temperature.innerHTML = `${celciusTemp}`;
   let realFeel = Math.round(response.data.temperature.feels_like);
   let humidityValue = response.data.temperature.humidity;
   let windValue = Math.round(response.data.wind.speed);
@@ -101,3 +102,24 @@ function getCurrentLocation(event) {
 }
 let currentLocationTemperature = document.querySelector("#current-weather");
 currentLocationTemperature.addEventListener("click", getCurrentLocation);
+
+function convertTempToFahrenheit(event) {
+  event.preventDefault();
+  celciusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+  let fahrenheitTemp = Math.round((celciusTemp * 9) / 5 + 32);
+  temperature.innerHTML = fahrenheitTemp;
+}
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", convertTempToFahrenheit);
+
+function convertTempToCelcius(event) {
+  event.preventDefault();
+  fahrenheitLink.classList.remove("active");
+  celciusLink.classList.add("active");
+  temperature.innerHTML = celciusTemp;
+}
+
+let celciusLink = document.querySelector("#celcius-link");
+celciusLink.addEventListener("click", convertTempToCelcius);
