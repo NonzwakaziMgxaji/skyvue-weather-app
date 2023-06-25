@@ -214,6 +214,10 @@ p {
   display: flex;
 }
 
+.main-weather-temp img {
+  margin-left: 0;
+}
+
 .settings {
   width: 600px;
   max-width: 800px;
