@@ -35,6 +35,41 @@ function formatDate(timestamp) {
   return `Last updated: ${day} ${hours}:${minutes}`;
 }
 
+function showDailyForecast() {
+  let dailyForecastElement = document.querySelector("#daily-forecast");
+
+  let forecastHTML = "";
+  let days = ["Thur", "Fri", "Sat", "Sun", "Mon", "Tue", "Wed"];
+
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+        <div class="row daily-forecast">
+          <div class="col-4 days daily-item">
+            <div class="daily-weather-forecast-day">${day}</div>
+          </div>
+          <div class="col-4 feel daily-item">
+            <img
+              src="images/umbrella.png"
+              class="img-fluid icon"
+              alt="umbrella"
+              width="10px"
+            />
+            <span>Sunny</span>
+          </div>
+          <div class="col-4 daily-temp daily-item">
+            <div class="daily-weather-forecast-day">
+              25<span>/18</span>
+            </div>
+          </div>
+        </div>
+      `;
+  });
+
+  dailyForecastElement.innerHTML = forecastHTML;
+}
+
 function getCurrentTemperature(response) {
   currentDateAndTime.innerHTML = formatDate(response.data.time * 1000);
   celciusTemp = Math.round(response.data.temperature.current);
@@ -128,3 +163,5 @@ function convertTempToCelcius(event) {
 
 let celciusLink = document.querySelector("#celcius-link");
 celciusLink.addEventListener("click", convertTempToCelcius);
+
+showDailyForecast();
