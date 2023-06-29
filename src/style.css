@@ -319,3 +319,11 @@ p {
 .fa-solid {
   padding-right: 5px;
 }
+
+.daily-item {
+  font-size: 10px;
+  font-weight: bold;
+  padding: 15px 5px;
+  text-align: center;
+  padding: 0;
+}
