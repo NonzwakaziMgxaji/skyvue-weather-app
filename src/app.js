@@ -43,10 +43,20 @@ function formatDay(timestamp) {
   return day;
 }
 
-function showDailyForecast(response) {
-  console.log(response.data.daily);
-  let dailyForecastElement = document.querySelector("#daily-forecast");
+function formatTime(timestamp) {
+  let now = new Date(timestamp * 1000);
+  let hours = now.getHours();
+  if (hours < 10) {
+    hours = `0${hours}:00`;
+  } else {
+    hours = `${hours}:00`;
+  }
 
+  return hours;
+}
+
+function showDailyForecast(response) {
+  let dailyForecastElement = document.querySelector("#daily-forecast");
   let forecastHTML = "";
   let forecastForDays = response.data.daily;
 
@@ -58,24 +68,24 @@ function showDailyForecast(response) {
         <div class="row daily-forecast">
           <div class="col-2 days daily-item">
             <div class="daily-weather-forecast-day">${formatDay(
-              forecastDay.dt
+              forecastDay.time
             )}</div>
           </div>
           <div class="col-7 feel daily-item">
             <img
-              src="http://openweathermap.org/img/wn/${
-                forecastDay.weather[0].icon
-              }@2x.png"
+              src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${
+                forecastDay.condition.icon
+              }.png""
               class="img-fluid icon"
               alt="weather icon"
               width="20px"
             />
-            <span>${forecastDay.weather[0].description}</span>
+            <span>${forecastDay.condition.description}</span>
           </div>
           <div class="col-3 daily-temp daily-item">
             <div class="daily-weather-forecast-day">
-              ${Math.round(forecastDay.temp.max)}<span>/${Math.round(
-          forecastDay.temp.min
+              ${Math.round(forecastDay.temperature.maximum)}<span>/${Math.round(
+          forecastDay.temperature.minimum
         )}</span>
             </div>
           </div>
@@ -87,12 +97,45 @@ function showDailyForecast(response) {
   dailyForecastElement.innerHTML = forecastHTML;
 }
 
+function showHourlyForecast(response) {
+  let hourlyForecastElement = document.querySelector("#hourly-forecast");
+  let hourlyForecastHTML = `<div class="row">`;
+  let forecastForHours = response.data.hourly;
+
+  forecastForHours.forEach(function (forecastHour, index) {
+    if (index < 6) {
+      hourlyForecastHTML =
+        hourlyForecastHTML +
+        `
+        <div class="col-2">
+          <div class="time">${formatTime(forecastHour.dt)}</div>
+          <img
+            src ="http://openweathermap.org/img/wn/${
+              forecastHour.weather[0].icon
+            }.png"
+            class="img-fluid"
+            alt="weather icon"
+            width="30px"
+          />
+          <div class="hourly-temp">${Math.round(forecastHour.temp)}°C</div>
+        </div>
+      `;
+    }
+  });
+
+  hourlyForecastHTML += `</div>`;
+  hourlyForecastElement.innerHTML = hourlyForecastHTML;
+}
+
 function getForecast(coordinates) {
-  console.log(coordinates);
-  let apiId = "c8a77112b2faf6684bb4b21a0aa778ae";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.latitude}&lon=${coordinates.longitude}&appid=${apiId}&units=metric`;
-  console.log(apiUrl);
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&units=${unit}&key=${apiKey}`;
   axios.get(apiUrl).then(showDailyForecast);
+}
+
+function getHourlyForecast(coordinates) {
+  let apiId = "1ee4264117b73d2263eecd562f31ef5c";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.latitude}&lon=${coordinates.longitude}&appid=${apiId}&units=${unit}`;
+  axios.get(apiUrl).then(showHourlyForecast);
 }
 
 function getCurrentTemperature(response) {
@@ -119,6 +162,7 @@ function getCurrentTemperature(response) {
   pressure.innerHTML = `${pressureValue}hPa`;
 
   getForecast(response.data.coordinates);
+  getHourlyForecast(response.data.coordinates);
 }
 
 function getCurrentCoordinates(position) {
@@ -148,6 +192,7 @@ function displayTemp(response) {
   currentDateAndTime.innerHTML = formatDate(response.data.time * 1000);
 
   getForecast(response.data.coordinates);
+  getHourlyForecast(response.data.coordinates);
 }
 
 function displayCity(event) {

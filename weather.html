@@ -134,67 +134,69 @@
                   </div>
                 </div>
                 <div class="todays-forecast">
-                  <div class="row">
-                    <h6 class="grey-text">TODAY'S FORECAST</h6>
-                    <div class="col-2">
-                      <span>6:00 AM</span>
-                      <img
-                        src="https://shecodes-assets.s3.amazonaws.com/api/weather/icons/thunderstorm-night.png"
-                        class="img-fluid"
-                        alt="weather icon"
-                        width="30px"
-                      />
-                      <div class="hourly-temp">20°C</div>
-                    </div>
-                    <div class="col-2">
-                      <span>9:00 AM</span>
-                      <img
-                        src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/shower-rain-day.png"
-                        class="img-fluid"
-                        alt="weather icon"
-                        width="30px"
-                      />
-                      <div class="hourly-temp">20°C</div>
-                    </div>
-                    <div class="col-2">
-                      <span>12:00 PM</span>
-                      <img
-                        src="https://shecodes-assets.s3.amazonaws.com/api/weather/icons/thunderstorm-night.png"
-                        class="img-fluid"
-                        alt="weather icon"
-                        width="30px"
-                      />
-                      <div class="hourly-temp">20°C</div>
-                    </div>
-                    <div class="col-2">
-                      <span>3:00 PM</span>
-                      <img
-                        src="https://shecodes-assets.s3.amazonaws.com/api/weather/icons/rain-day.png"
-                        class="img-fluid"
-                        alt="weather icon"
-                        width="30px"
-                      />
-                      <div class="hourly-temp">20°C</div>
-                    </div>
-                    <div class="col-2">
-                      <span>6:00 PM</span>
-                      <img
-                        src="https://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-day.png"
-                        class="img-fluid"
-                        alt="weather icon"
-                        width="30px"
-                      />
-                      <div class="hourly-temp">20°C</div>
-                    </div>
-                    <div class="col-2">
-                      <span>9:00 PM</span>
-                      <img
-                        src="https://shecodes-assets.s3.amazonaws.com/api/weather/icons/thunderstorm-night.png"
-                        class="img-fluid"
-                        alt="weather icon"
-                        width="30px"
-                      />
-                      <div class="hourly-temp">20°C</div>
+                  <h6 class="grey-text">TODAY'S FORECAST</h6>
+                  <div class="hourly-forecast" id="hourly-forecast">
+                    <div class="row">
+                      <div class="col-2">
+                        <div class="time">03:00</div>
+                        <img
+                          src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/rain-day.png"
+                          class="img-fluid"
+                          alt="weather icon"
+                          width="30px"
+                        />
+                        <div class="hourly-temp">20°C</div>
+                      </div>
+                      <div class="col-2">
+                        <div class="time">03:00</div>
+                        <img
+                          src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/rain-day.png"
+                          class="img-fluid"
+                          alt="weather icon"
+                          width="30px"
+                        />
+                        <div class="hourly-temp">20°C</div>
+                      </div>
+                      <div class="col-2">
+                        <div class="time">03:00</div>
+                        <img
+                          src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/rain-day.png"
+                          class="img-fluid"
+                          alt="weather icon"
+                          width="30px"
+                        />
+                        <div class="hourly-temp">20°C</div>
+                      </div>
+                      <div class="col-2">
+                        <div class="time">03:00</div>
+                        <img
+                          src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/rain-day.png"
+                          class="img-fluid"
+                          alt="weather icon"
+                          width="30px"
+                        />
+                        <div class="hourly-temp">20°C</div>
+                      </div>
+                      <div class="col-2">
+                        <div class="time">03:00</div>
+                        <img
+                          src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/rain-day.png"
+                          class="img-fluid"
+                          alt="weather icon"
+                          width="30px"
+                        />
+                        <div class="hourly-temp">20°C</div>
+                      </div>
+                      <div class="col-2">
+                        <div class="time">03:00</div>
+                        <img
+                          src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/rain-day.png"
+                          class="img-fluid"
+                          alt="weather icon"
+                          width="30px"
+                        />
+                        <div class="hourly-temp">20°C</div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -251,7 +253,139 @@
               <div class="daily-forecast-container">
                 <h6 class="daily-forecast-heading">7-DAY FORECAST</h6>
                 <div class="daily-forecast" id="daily-forecast">
-                  
+                  <div class="row daily-forecast">
+                    <div class="col-2 days daily-item">
+                      <div class="daily-weather-forecast-day">Mon</div>
+                    </div>
+                    <div class="col-7 feel daily-item">
+                      <img
+                        src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/rain-day.png"
+                        class="img-fluid icon"
+                        alt="weather icon"
+                        width="20px"
+                      />
+                      <span>Sunny</span>
+                    </div>
+                    <div class="col-3 daily-temp daily-item">
+                      <div class="daily-weather-forecast-day">
+                        25<span>/18</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row daily-forecast">
+                    <div class="col-2 days daily-item">
+                      <div class="daily-weather-forecast-day">Mon</div>
+                    </div>
+                    <div class="col-7 feel daily-item">
+                      <img
+                        src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/rain-day.png"
+                        class="img-fluid icon"
+                        alt="weather icon"
+                        width="20px"
+                      />
+                      <span>Sunny</span>
+                    </div>
+                    <div class="col-3 daily-temp daily-item">
+                      <div class="daily-weather-forecast-day">
+                        25<span>/18</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row daily-forecast">
+                    <div class="col-2 days daily-item">
+                      <div class="daily-weather-forecast-day">Mon</div>
+                    </div>
+                    <div class="col-7 feel daily-item">
+                      <img
+                        src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/rain-day.png"
+                        class="img-fluid icon"
+                        alt="weather icon"
+                        width="20px"
+                      />
+                      <span>Sunny</span>
+                    </div>
+                    <div class="col-3 daily-temp daily-item">
+                      <div class="daily-weather-forecast-day">
+                        25<span>/18</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row daily-forecast">
+                    <div class="col-2 days daily-item">
+                      <div class="daily-weather-forecast-day">Mon</div>
+                    </div>
+                    <div class="col-7 feel daily-item">
+                      <img
+                        src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/rain-day.png"
+                        class="img-fluid icon"
+                        alt="weather icon"
+                        width="20px"
+                      />
+                      <span>Sunny</span>
+                    </div>
+                    <div class="col-3 daily-temp daily-item">
+                      <div class="daily-weather-forecast-day">
+                        25<span>/18</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row daily-forecast">
+                    <div class="col-2 days daily-item">
+                      <div class="daily-weather-forecast-day">Mon</div>
+                    </div>
+                    <div class="col-7 feel daily-item">
+                      <img
+                        src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/rain-day.png"
+                        class="img-fluid icon"
+                        alt="weather icon"
+                        width="20px"
+                      />
+                      <span>Sunny</span>
+                    </div>
+                    <div class="col-3 daily-temp daily-item">
+                      <div class="daily-weather-forecast-day">
+                        25<span>/18</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row daily-forecast">
+                    <div class="col-2 days daily-item">
+                      <div class="daily-weather-forecast-day">Mon</div>
+                    </div>
+                    <div class="col-7 feel daily-item">
+                      <img
+                        src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/rain-day.png"
+                        class="img-fluid icon"
+                        alt="weather icon"
+                        width="20px"
+                      />
+                      <span>Sunny</span>
+                    </div>
+                    <div class="col-3 daily-temp daily-item">
+                      <div class="daily-weather-forecast-day">
+                        25<span>/18</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row daily-forecast">
+                    <div class="col-2 days daily-item">
+                      <div class="daily-weather-forecast-day">Mon</div>
+                    </div>
+                    <div class="col-7 feel daily-item">
+                      <img
+                        src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/rain-day.png"
+                        class="img-fluid icon"
+                        alt="weather icon"
+                        width="20px"
+                      />
+                      <span>Sunny</span>
+                    </div>
+                    <div class="col-3 daily-temp daily-item">
+                      <div class="daily-weather-forecast-day">
+                        25<span>/18</span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
