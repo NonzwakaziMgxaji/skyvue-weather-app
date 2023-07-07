@@ -35,39 +35,64 @@ function formatDate(timestamp) {
   return `Last updated: ${day} ${hours}:${minutes}`;
 }
 
-function showDailyForecast() {
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let daysOfTheWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  let day = daysOfTheWeek[date.getDay()];
+
+  return day;
+}
+
+function showDailyForecast(response) {
+  console.log(response.data.daily);
   let dailyForecastElement = document.querySelector("#daily-forecast");
 
   let forecastHTML = "";
-  let days = ["Thur", "Fri", "Sat", "Sun", "Mon", "Tue", "Wed"];
+  let forecastForDays = response.data.daily;
 
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `
+  forecastForDays.forEach(function (forecastDay, index) {
+    if (index < 7) {
+      forecastHTML =
+        forecastHTML +
+        `
         <div class="row daily-forecast">
-          <div class="col-4 days daily-item">
-            <div class="daily-weather-forecast-day">${day}</div>
+          <div class="col-2 days daily-item">
+            <div class="daily-weather-forecast-day">${formatDay(
+              forecastDay.dt
+            )}</div>
           </div>
-          <div class="col-4 feel daily-item">
+          <div class="col-7 feel daily-item">
             <img
-              src="images/umbrella.png"
+              src="http://openweathermap.org/img/wn/${
+                forecastDay.weather[0].icon
+              }@2x.png"
               class="img-fluid icon"
-              alt="umbrella"
-              width="10px"
+              alt="weather icon"
+              width="20px"
             />
-            <span>Sunny</span>
+            <span>${forecastDay.weather[0].description}</span>
           </div>
-          <div class="col-4 daily-temp daily-item">
+          <div class="col-3 daily-temp daily-item">
             <div class="daily-weather-forecast-day">
-              25<span>/18</span>
+              ${Math.round(forecastDay.temp.max)}<span>/${Math.round(
+          forecastDay.temp.min
+        )}</span>
             </div>
           </div>
         </div>
       `;
+    }
   });
 
   dailyForecastElement.innerHTML = forecastHTML;
+}
+
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiId = "c8a77112b2faf6684bb4b21a0aa778ae";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.latitude}&lon=${coordinates.longitude}&appid=${apiId}&units=metric`;
+  console.log(apiUrl);
+  axios.get(apiUrl).then(showDailyForecast);
 }
 
 function getCurrentTemperature(response) {
@@ -92,6 +117,8 @@ function getCurrentTemperature(response) {
   wind.innerHTML = `${windValue}km/h`;
   feel.innerHTML = `${realFeel}°C`;
   pressure.innerHTML = `${pressureValue}hPa`;
+
+  getForecast(response.data.coordinates);
 }
 
 function getCurrentCoordinates(position) {
@@ -119,6 +146,8 @@ function displayTemp(response) {
     response.data.condition.description;
   mainWeatherIcon.setAttribute("src", response.data.condition.icon_url);
   currentDateAndTime.innerHTML = formatDate(response.data.time * 1000);
+
+  getForecast(response.data.coordinates);
 }
 
 function displayCity(event) {
@@ -163,5 +192,3 @@ function convertTempToCelcius(event) {
 
 let celciusLink = document.querySelector("#celcius-link");
 celciusLink.addEventListener("click", convertTempToCelcius);
-
-showDailyForecast();
