@@ -195,18 +195,18 @@ function displayTemp(response) {
   getHourlyForecast(response.data.coordinates);
 }
 
-function displayCity(event) {
-  event.preventDefault();
-  let inputCity = document.querySelector("#input-city").value;
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${inputCity}&units=${unit}&key=${apiKey}`;
+function displayCity(city) {
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&units=${unit}&key=${apiKey}`;
 
   axios.get(`${apiUrl}`).then(displayTemp);
 }
-let searchForm = document.querySelector("#searchcity-form");
-searchForm.addEventListener("submit", displayCity);
 
+let searchForm = document.querySelector("#searchcity-form");
 searchForm.addEventListener("submit", function handleSubmit(event) {
   event.preventDefault();
+  let inputCity = document.querySelector("#input-city").value;
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${inputCity}&units=${unit}&key=${apiKey}`;
+  axios.get(`${apiUrl}`).then(displayTemp);
   searchForm.reset();
 });
 
@@ -214,6 +214,7 @@ function getCurrentLocation(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(getCurrentCoordinates);
 }
+
 let currentLocationTemperature = document.querySelector("#current-weather");
 currentLocationTemperature.addEventListener("click", getCurrentLocation);
 
@@ -237,3 +238,5 @@ function convertTempToCelcius(event) {
 
 let celciusLink = document.querySelector("#celcius-link");
 celciusLink.addEventListener("click", convertTempToCelcius);
+
+displayCity("Cape Town");
