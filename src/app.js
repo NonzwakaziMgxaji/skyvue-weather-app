@@ -112,7 +112,7 @@ function showHourlyForecast(response) {
           <img
             src ="http://openweathermap.org/img/wn/${
               forecastHour.weather[0].icon
-            }.png"
+            }@2x.png"
             class="img-fluid"
             alt="weather icon"
             width="30px"
