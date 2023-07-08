@@ -3,7 +3,7 @@
 ## Overview
 
 This project is a weather app that allows users to search for weather information of any city and retrieve weather data for their current location.
-It is built using HTML, CSS and JavaScript, and utilizes a two weather APIs(OpenWeatherMap API and the SheCodes Weather API) to fetch and display data.
+It is built using HTML, CSS and JavaScript, and utilizes two weather APIs to fetch and display data.
 This weather app is available on Netlify and can be accessed via the link below:
 
 [SkyVue Weather App](https://main--skyvue-weather-app.netlify.app/)
@@ -14,14 +14,16 @@ This weather app is available on Netlify and can be accessed via the link below:
   - Users can enter the name of a city in the search bar and retrieve the current weather conditions, inluding temeperature, weather description, wind speed, humidity, and pressure.
 - Current location weather:
   - Users can retrieve weather conditions for their current location by clicking the current button. The app will access the user's geolocation data(with their permission) and provide the weather information accordingly.
-- Unit change:
+- Unit conversion:
   - Users have the option to display the temperature in Celcius or Fahrenheit and can change it as they please by clicking on either °C or °F.
 
 ## Future features
 
-- The project is still a work in progress
-- A settings feature to set the imperial and metric units for the different weather conditions.
-- For the hourly forecast to display the hour and temperature of every 3 hours (Example: 15:00, 18:00, 21:00. etc)
+The project is still a work in progress. Below are some of the features I will continue adding.
+
+- A settings feature to set the imperial and metric units for the different weather conditions
+- Make the unit conversion apply to the hourly and daily forecast as well
+- Make the hourly forecast display the hour and temperature of every 3 hours (Example: 15:00, 18:00, 21:00. etc)
 - A responsive design for the app to work well on different devices and screen sizes, to ensure a consistent user experience across desktop and mobile devices.
 
 ## Installation
@@ -54,9 +56,9 @@ The Weather App utilizes a weather API to fetch weather data. The API used can b
 
 The Weather App does not require any external dependencies or libraries. Bootstrap was used to a certain degree however it can be built using plain HTML, CSS, and JavaScript.
 
-## Key Topics
+## Technologies
 
-The following technologies used in this project:
+The following technologies are used in this project:
 
 - HTML
 - CSS
@@ -97,11 +99,9 @@ When contributing, please adhere to the following guidelines:
 
 ## Acknowledgements
 
-The Weather App utilizes weather data provided by external APIs, and proper attribution is given within the application to comply with the terms of service of the respective weather API providers.
+The Weather App utilizes weather data provided by external APIs, OpenWeatherMap API and the SheCodes Weather API. I would like to express my gratitude to the developers and maintainers of the weather API providers for providing the data used in this application.
 
-We would like to express our gratitude to the developers and maintainers of the weather API providers for providing the data used in this application.
-
-Another huge shout out to Matt Delac(@matthieua) and the SheCodes programme and their online coding workshops for women. If you would like to gain some coding skills, do check them out on the link below:
+Another huge shout out to [Matt Delac](https://www.linkedin.com/in/mattdelac/) and the SheCodes programme and their online coding workshops for women. If you would like to gain some coding skills, do check them out on the link below:
 
 [SheCodes](https://www.shecodes.io/)
 
