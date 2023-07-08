@@ -157,7 +157,7 @@ function getCurrentTemperature(response) {
   let realFeel = Math.round(response.data.temperature.feels_like);
   let pressureValue = response.data.temperature.pressure;
   humidity.innerHTML = `${humidityValue}%`;
-  wind.innerHTML = `${windValue}km/h`;
+  wind.innerHTML = `${windValue}m/s`;
   feel.innerHTML = `${realFeel}°C`;
   pressure.innerHTML = `${pressureValue}hPa`;
 
@@ -184,7 +184,7 @@ function displayTemp(response) {
   let pressureValue = response.data.temperature.pressure;
   feel.innerHTML = `${realFeel}°C`;
   humidity.innerHTML = `${humidityValue}%`;
-  wind.innerHTML = `${windValue}km/h`;
+  wind.innerHTML = `${windValue}m/s`;
   pressure.innerHTML = `${pressureValue}hPa`;
   document.querySelector("#description").innerHTML =
     response.data.condition.description;
